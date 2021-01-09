@@ -1,10 +1,11 @@
 # Coal Shovel
-Provides a simple CRUD endpoint set, for use with express and sequelize.
+Provides a simple CRUD endpoint set, based on Django ViewSets, for use with express and sequelize.
 
 ## Contents
 - [Install](#install)
 - [Usage](#usage)
 - [Example Code](#example-code)
+- [Custom Behavior](#custom-behavior)
 - [Endpoints](#endpoints)
 
 ## Install
@@ -61,6 +62,19 @@ app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`)
 })
 ```
+
+## Custom Behavior
+You can extend from the coalCRUD class and override the methods you want to create custom beahavior to a given endpoint.
+```javascript
+class myCRUD extends coalCRUD {
+  getAll() {
+    this.app.get("/" + this.route, async (_, res) => {
+        res.status(403).send();
+      });
+  }
+}
+```
+In this example, we override the getAll method to send a 403 FORBIDDEN status code to the user, instead of serving all data.
 
 ## Endpoints
 Returns all items:
