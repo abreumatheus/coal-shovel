@@ -1,26 +1,15 @@
 # Coal Shovel
 Provides a simple CRUD endpoint set, for use with express and sequelize.
 
-## Endpoints
-Returns all items:
+## Contents
+- [Install](#install)
+- [Usage](#usage)
+- [Example Code](#example-code)
+- [Endpoints](#endpoints)
+
+## Install
 ```
-GET http://localhost:3000/route-name
-```
-Returns single item by primary key:
-```
-GET http://localhost:3000/route-name/1
-```
-Create item based on model fields:
-```
-POST http://localhost:3000/route-name
-```
-Update item based on model fields:
-```
-POST http://localhost:3000/route-name
-```
-Delete item by primary key:
-```
-DELETE http://localhost:3000/route-name/1
+npm i coal-shovel
 ```
 
 ## Usage
@@ -35,6 +24,7 @@ registerCRUD(expressInstance, 'route-name', SequelizeModel)
 const registerCRUD = require('coal-shovel')
 const express = require('express')
 const Sequelize = require('sequelize');
+
 const db = new Sequelize('sqlite::memory:');
 
 const app = express()
@@ -68,4 +58,26 @@ const port = 3000
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`)
 })
+```
+
+## Endpoints
+Returns all items:
+```
+GET http://localhost:3000/route-name
+```
+Returns single item by primary key:
+```
+GET http://localhost:3000/route-name/1
+```
+Create item based on model fields:
+```
+POST http://localhost:3000/route-name
+```
+Update item based on model fields:
+```
+POST http://localhost:3000/route-name
+```
+Delete item by primary key:
+```
+DELETE http://localhost:3000/route-name/1
 ```
