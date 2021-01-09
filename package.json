@@ -1,6 +1,6 @@
 {
   "name": "coal-shovel",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Provides a simple CRUD endpoint set, for use with express and sequelize.",
   "keywords": [
     "express",
