@@ -14,14 +14,15 @@ npm i coal-shovel
 
 ## Usage
 ```javascript
-const registerCRUD = require('coal-shovel')
+const coalCRUD = require('coal-shovel');
 
-registerCRUD(expressInstance, 'route-name', SequelizeModel)
+let sampleCRUD = new coalCRUD(expressInstance, 'route-name', SequelizeModel);
+sampleCRUD.registerCRUD()
 ```
 
 ## Example Code
 ```javascript
-const registerCRUD = require('coal-shovel')
+const coalCRUD = require('coal-shovel')
 const express = require('express')
 const Sequelize = require('sequelize');
 
@@ -52,7 +53,8 @@ async function syncDB() {
 }
 
 syncDB()
-registerCRUD(app, 'product', Product)
+let product = new coalCRUD(app, "product", Product);
+product.registerCRUD();
 
 const port = 3000
 app.listen(port, () => {
