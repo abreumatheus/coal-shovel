@@ -14,5 +14,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matheus Abreu",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/abreumatheus/coal-shovel"
 }
