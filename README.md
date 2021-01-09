@@ -24,6 +24,7 @@ registerCRUD(expressInstance, 'route-name', SequelizeModel)
 const registerCRUD = require('coal-shovel')
 const express = require('express')
 const Sequelize = require('sequelize');
+
 const db = new Sequelize('sqlite::memory:');
 
 const app = express()
