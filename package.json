@@ -15,5 +15,8 @@
   },
   "author": "Matheus Abreu",
   "license": "MIT",
-  "homepage": "https://github.com/abreumatheus/coal-shovel"
+  "homepage": "https://github.com/abreumatheus/coal-shovel",
+  "dependencies": {
+    "body-parser": "^1.19.0"
+  }
 }
