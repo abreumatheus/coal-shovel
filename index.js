@@ -1,4 +1,4 @@
-class coalCRUD {
+class CoalCRUD {
   constructor(app, routeName, sequelizeModel) {
     this.app = app;
     this.route = routeName;
@@ -80,4 +80,4 @@ class coalCRUD {
   }
 }
 
-module.exports = coalCRUD;
+module.exports = CoalCRUD;
