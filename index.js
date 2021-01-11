@@ -8,8 +8,8 @@ class CoalCRUD {
   create(app, route, model) {
     app.post("/" + route, async (req, res) => {
       try {
-        const result = await model.create(req.body);
-        res.status(201).send(result);
+        await model.create(req.body);
+        res.status(201).send();
       } catch (_) {
         res.status(500).send();
       }
@@ -45,8 +45,8 @@ class CoalCRUD {
         for (let [key, value] of Object.entries(req.body)) {
           item[key] = value;
         }
-        const result = await item.save();
-        res.status(200).send(result);
+        await item.save();
+        res.status(200).send();
       }
     });
   }
