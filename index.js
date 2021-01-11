@@ -5,13 +5,15 @@ class CoalCRUD {
     app.use(bodyParser.json());
   }
 
-  create(app, route, model) {
-    app.post("/" + route, async (req, res) => {
+  create (app, route, model) {
+    app.post('/' + route, async (req, res) => {
       try {
         const result = await model.create(req.body);
-        res.status(201).send({id: result.id});
-      } catch (_) {
-        res.status(500).send();
+        res.status(201).send({ id: result.id });
+      } catch (e) {
+        const errors = [];
+        for (const err in e.errors) { errors.push(e.errors[err].message) };
+        res.status(500).send(errors);
       }
     });
   }
