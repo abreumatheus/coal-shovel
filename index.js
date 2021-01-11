@@ -8,8 +8,8 @@ class CoalCRUD {
   create(app, route, model) {
     app.post("/" + route, async (req, res) => {
       try {
-        await model.create(req.body);
-        res.status(201).send();
+        const result = await model.create(req.body);
+        res.status(201).send({id: result.id});
       } catch (_) {
         res.status(500).send();
       }
