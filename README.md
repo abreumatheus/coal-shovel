@@ -19,16 +19,16 @@ npm i coal-shovel
 ## Usage
 
 ```javascript
-const coalCRUD = require("coal-shovel");
+const CoalCRUD = require("coal-shovel");
 
-let sampleCRUD = new coalCRUD();
+let sampleCRUD = new CoalCRUD();
 sampleCRUD.registerCRUD(expressInstance, "route-name", SequelizeModel);
 ```
 
 ## Example Code
 
 ```javascript
-const coalCRUD = require("coal-shovel");
+const CoalCRUD = require("coal-shovel");
 const express = require("express");
 const Sequelize = require("sequelize");
 
@@ -59,7 +59,7 @@ async function syncDB() {
 }
 
 syncDB();
-let product = new coalCRUD();
+let product = new CoalCRUD();
 product.registerCRUD(app, "product", Product);
 
 const port = 3000;
@@ -70,12 +70,12 @@ app.listen(port, () => {
 
 ## Custom Behavior
 
-You can extend from the coalCRUD class and override the methods you want to create custom beahavior to a given endpoint.
+You can extend from the CoalCRUD class and override the methods you want to create custom beahavior to a given endpoint.
 
 ```javascript
-class myCRUD extends coalCRUD {
-  getAll() {
-    this.app.get("/" + this.route, async (_, res) => {
+class myCRUD extends CoalCRUD {
+  getAll(app, route, _) {
+    app.get("/" + route, async (_, res) => {
       res.status(403).send();
     });
   }
